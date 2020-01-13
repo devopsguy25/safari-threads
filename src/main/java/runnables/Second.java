@@ -1,7 +1,7 @@
 package runnables;
 
 class Stopper implements Runnable {
-  private volatile boolean stop = false;
+  private /*volatile*/ boolean stop = false;
 
   @Override
   public void run() {
@@ -9,6 +9,7 @@ class Stopper implements Runnable {
         + " starting...");
 
     while (!stop)
+//      System.out.print(".");
       ;
 
     System.out.println(Thread.currentThread().getName()
